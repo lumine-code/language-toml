@@ -1,0 +1,38 @@
+# A TOML sample, kept idiomatic so it is worth opening in the editor.
+
+title = "TOML sample"
+enabled = true
+retries = 3
+ratio = 0.5
+created = 1979-05-27T07:32:00Z
+hex = 0xDEADBEEF
+infinite = inf
+
+[server]
+host = "localhost"
+ports = [8001, 8002, 8003]
+timeout = 30
+
+[server.tls]
+enabled = false
+ciphers = ["TLS_AES_128_GCM_SHA256"]
+
+[database]
+url = 'postgres://localhost/app'   # a literal string takes no escapes
+banner = """
+a multi-line
+basic string
+"""
+
+[[product]]
+name = "hammer"
+sku = 738594937
+
+[[product]]
+name = "nail"
+sku = 284758393
+colour = "grey"
+
+[owner.address]
+street = "1 Example Way"
+city = "Kraków"
