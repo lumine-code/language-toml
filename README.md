@@ -7,6 +7,10 @@ TOML language support.
 - **Grammars**: provides both Tree-sitter and TextMate grammars, built from [tree-sitter-toml](https://github.com/tree-sitter-grammars/tree-sitter-toml).
 - **Syntax highlighting**: full grammar coverage for TOML files.
 
+## Installation
+
+To install `language-toml` search for _language-toml_ in the Install pane of the Lumine settings or run `lumine --install lumine-code/language-toml`.
+
 ## Services
 
 - **hyperlink.injection** (`^1.0.0`): consumed to highlight URLs inside TOML files as clickable links.
