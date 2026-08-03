@@ -1,7 +1,7 @@
 {
   "name": "TOML",
   "scopeName": "source.toml",
-  "type": "modern-tree-sitter",
+  "type": "tree-sitter",
   "parser": "tree-sitter-toml",
   "injectionRegex": "(toml|TOML)$",
   "treeSitter": {
