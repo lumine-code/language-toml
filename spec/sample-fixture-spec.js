@@ -7,12 +7,12 @@ const path = require("path");
 
 describe("TOML sample fixtures", () => {
   beforeEach(async () => {
-    await atom.packages.activatePackage("language-toml");
-    atom.config.set("language.useTreeSitterParsers", true);
+    await lumine.packages.activatePackage("language-toml");
+    lumine.config.set("language.useTreeSitterParsers", true);
   });
 
   it("parses sample.toml without error", async () => {
-    const editor = await atom.workspace.open(path.join(__dirname, "fixtures", "sample.toml"));
+    const editor = await lumine.workspace.open(path.join(__dirname, "fixtures", "sample.toml"));
     const languageMode = editor.getBuffer().getLanguageMode();
     await languageMode.ready;
 
