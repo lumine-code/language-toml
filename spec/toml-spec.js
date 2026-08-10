@@ -1,13 +1,11 @@
 describe("TOML grammar", function () {
   let grammar = null;
 
-  beforeEach(function () {
-    waitsForPromise(() => lumine.packages.activatePackage("language-toml"));
+  beforeEach(async () => {
+    await lumine.packages.activatePackage("language-toml");
 
-    runs(function () {
-      lumine.config.set("language.useTreeSitterParsers", false);
-      grammar = lumine.grammars.grammarForScopeName("source.toml");
-    });
+    lumine.config.set("language.useTreeSitterParsers", false);
+    grammar = lumine.grammars.grammarForScopeName("source.toml");
   });
 
   it("parses the grammar", function () {
