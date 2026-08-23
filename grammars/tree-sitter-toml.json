@@ -6,7 +6,7 @@
   "injectionRegex": "(toml|TOML)$",
   "treeSitter": {
     "parserSource": "github:tree-sitter-grammars/tree-sitter-toml#v0.7.0",
-    "wasmBuildTool": "tree-sitter-cli#v0.26.11",
+    "wasmBuildTool": "tree-sitter-cli#v0.26.13",
     "grammar": "tree-sitter-toml/tree-sitter-toml.wasm",
     "highlightsQuery": "tree-sitter-toml/highlights.scm",
     "foldsQuery": "tree-sitter-toml/folds.scm",
