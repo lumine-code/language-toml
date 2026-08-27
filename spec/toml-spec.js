@@ -4,7 +4,7 @@ describe("TOML grammar", function () {
   beforeEach(async () => {
     await lumine.packages.activatePackage("language-toml");
 
-    lumine.config.set("language.useTreeSitterParsers", false);
+    lumine.config.set("editor.useTreeSitterParsers", false);
     grammar = lumine.grammars.grammarForScopeName("source.toml");
   });
 

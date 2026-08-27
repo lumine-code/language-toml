@@ -1,6 +1,6 @@
 {
   ".source.toml": {
-    "language": {
+    "editor": {
       "commentStart": "# ",
       "commentDelimiters": {
         "line": "#"

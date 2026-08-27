@@ -8,7 +8,7 @@ const path = require("path");
 describe("TOML sample fixtures", () => {
   beforeEach(async () => {
     await lumine.packages.activatePackage("language-toml");
-    lumine.config.set("language.useTreeSitterParsers", true);
+    lumine.config.set("editor.useTreeSitterParsers", true);
   });
 
   it("parses sample.toml without error", async () => {
