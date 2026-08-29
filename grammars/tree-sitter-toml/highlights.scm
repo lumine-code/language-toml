@@ -10,11 +10,15 @@
 ; SECTIONS
 ; ========
 
-((table "[" (_) "]") @entity.name.section.table.toml
-  (#set! adjust.endAt firstNamedChild.nextSibling.endPosition))
+(["[" "]"] @entity.name.section.table.toml
+  (#is? test.childOfType table))
+([(bare_key) (quoted_key) (dotted_key)] @entity.name.section.table.toml
+  (#is? test.childOfType table))
 
-((table_array_element "[[" (_) "]]") @entity.name.section.table-array-element.toml
-  (#set! adjust.endAt firstNamedChild.nextSibling.endPosition))
+(["[[" "]]"] @entity.name.section.table-array-element.toml
+  (#is? test.childOfType table_array_element))
+([(bare_key) (quoted_key) (dotted_key)] @entity.name.section.table-array-element.toml
+  (#is? test.childOfType table_array_element))
 
 
 ; KEYS
@@ -118,24 +122,35 @@
 ; PUNCTUATION
 ; ===========
 
-(array
-  "[" @punctuation.definition.array.begin.bracket.square.toml
-  "]" @punctuation.definition.array.end.bracket.square.toml)
+(("[" @punctuation.definition.array.begin.bracket.square.toml)
+  (#is? test.childOfType array)
+  (#is? test.first true))
+(("]" @punctuation.definition.array.end.bracket.square.toml)
+  (#is? test.childOfType array)
+  (#is? test.last true))
 
-(array "," @punctuation.separator.array.comma.toml)
+(("," @punctuation.separator.array.comma.toml)
+  (#is? test.childOfType array))
 
-(table
-  "[" @punctuation.definition.table.begin.bracket.square.toml
-  "]" @punctuation.definition.table.end.bracket.square.toml)
+(("[" @punctuation.definition.table.begin.bracket.square.toml)
+  (#is? test.childOfType table)
+  (#is? test.first true))
+(("]" @punctuation.definition.table.end.bracket.square.toml)
+  (#is? test.childOfType table))
 
-(inline_table
-  "{" @punctuation.definition.inline-table.begin.bracket.curly.toml
-  "}" @punctuation.definition.inline-table.end.bracket.curly.toml)
+(("{" @punctuation.definition.inline-table.begin.bracket.curly.toml)
+  (#is? test.childOfType inline_table)
+  (#is? test.first true))
+(("}" @punctuation.definition.inline-table.end.bracket.curly.toml)
+  (#is? test.childOfType inline_table)
+  (#is? test.last true))
 
-(inline_table
-  "," @punctuation.separator.inline-table.comma.toml)
+(("," @punctuation.separator.inline-table.comma.toml)
+  (#is? test.childOfType inline_table))
 
 
-(table_array_element
-  "[[" @punctuation.definition.table-array-element.begin.bracket.square.toml
-  "]]" @punctuation.definition.table-array-element.end.bracket.square.toml)
+(("[[" @punctuation.definition.table-array-element.begin.bracket.square.toml)
+  (#is? test.childOfType table_array_element)
+  (#is? test.first true))
+(("]]" @punctuation.definition.table-array-element.end.bracket.square.toml)
+  (#is? test.childOfType table_array_element))
