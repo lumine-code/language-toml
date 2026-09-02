@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const highlightsPath = path.join(__dirname, "..", "grammars", "tree-sitter-toml", "highlights.scm");
+const highlightsPath = path.join(__dirname, "..", "grammars", "toml-highlights.scm");
 
 // The fixture beside this file is a plain sample of the language — the file to
 // open when you want to look at the highlighting rather than assert on it. This
@@ -11,7 +11,6 @@ const highlightsPath = path.join(__dirname, "..", "grammars", "tree-sitter-toml"
 describe("TOML sample fixtures", () => {
   beforeEach(async () => {
     await lumine.packages.activatePackage("language-toml");
-    lumine.config.set("editor.useTreeSitterParsers", true);
   });
 
   it("parses sample.toml without error", async () => {

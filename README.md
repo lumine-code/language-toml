@@ -4,7 +4,7 @@ TOML language support.
 
 ## Features
 
-- **Grammars**: provides both Tree-sitter and TextMate grammars, built from [tree-sitter-toml](https://github.com/tree-sitter-grammars/tree-sitter-toml).
+- **Grammars**: provides a Tree-sitter grammar built from [tree-sitter-toml](https://github.com/tree-sitter-grammars/tree-sitter-toml).
 - **Syntax highlighting**: full grammar coverage for TOML files.
 
 ## Installation
