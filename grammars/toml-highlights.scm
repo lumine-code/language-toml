@@ -2,7 +2,8 @@
 ; COMMENTS
 ; ========
 
-(comment) @comment.line.number-sign.toml
+((comment) @comment.line.number-sign.toml
+  (#set! adjust.endBeforeFirstMatchOf "\\r?$"))
 ((comment) @punctuation.definition.comment.toml
   (#set! adjust.endAfterFirstMatchOf "^#"))
 
@@ -44,12 +45,12 @@
 (string "\"\"\"") @string.quoted.double.block.toml
 (string "'''") @string.quoted.single.block.toml
 
-(string
-  ["\"" "'"] @punctuation.definition.string.begin.toml
+(["\"" "'"] @punctuation.definition.string.begin.toml
+  (#is? test.childOfType string)
   (#is? test.first true))
 
-(string
-  ["\"" "'"] @punctuation.definition.string.end.toml
+(["\"" "'"] @punctuation.definition.string.end.toml
+  (#is? test.childOfType string)
   (#is? test.last true))
 
 ; WORKAROUND: There seems to be a bug with multi-line strings where only the
