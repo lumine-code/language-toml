@@ -24,7 +24,7 @@ describe("TOML sample fixtures", () => {
     await languageMode.ready;
 
     expect(editor.getGrammar().scopeName).toBe("source.toml");
-    expect(languageMode.tree.rootNode.hasError).toBe(false);
+    expect((await editor.getSyntaxDiagnostics()).hasError).toBe(false);
   });
 
   it("keeps unbounded collection captures leaf-rooted and viewport-local", async () => {
@@ -45,13 +45,11 @@ describe("TOML sample fixtures", () => {
     const languageMode = editor.getBuffer().getLanguageMode();
     await languageMode.ready;
 
-    const captures = languageMode.rootLanguageLayer.queries.highlightsQuery.captures(
-      languageMode.rootLanguageLayer.tree.rootNode,
-      {
-        startPosition: new Point(3000, 0),
-        endPosition: new Point(3006, 0),
-      },
-    );
+    const groups = await editor.getGrammarQueryCaptureGroups("highlightsQuery", {
+      startPosition: new Point(3000, 0),
+      endPosition: new Point(3006, 0),
+    });
+    const captures = groups.find(({ grammar }) => grammar === editor.getGrammar()).captures;
 
     expect(
       captures.some(
@@ -114,13 +112,13 @@ inline = {left = 1, right = 2}
     const languageMode = editor.getBuffer().getLanguageMode();
     await languageMode.ready;
 
-    const { highlightsQuery } = languageMode.rootLanguageLayer.queries;
-    const rootNode = languageMode.rootLanguageLayer.tree.rootNode;
-    const fullCaptures = highlightsQuery.captures(rootNode);
-    const tileCaptures = highlightsQuery.captures(rootNode, {
+    const fullGroups = await editor.getGrammarQueryCaptureGroups("highlightsQuery");
+    const fullCaptures = fullGroups.find(({ grammar }) => grammar === editor.getGrammar()).captures;
+    const tileGroups = await editor.getGrammarQueryCaptureGroups("highlightsQuery", {
       startPosition: new Point(400, 0),
       endPosition: new Point(406, 0),
     });
+    const tileCaptures = tileGroups.find(({ grammar }) => grammar === editor.getGrammar()).captures;
 
     expect(fullCaptures.length).toBeLessThanOrEqual(21000);
     expect(tileCaptures.length).toBeLessThanOrEqual(130);
