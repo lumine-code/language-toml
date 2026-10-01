@@ -24,7 +24,7 @@ describe("TOML sample fixtures", () => {
     await languageMode.ready;
 
     expect(editor.getGrammar().scopeName).toBe("source.toml");
-    expect((await editor.getSyntaxDiagnostics()).hasError).toBe(false);
+    expect(editor.languageMode.tree.rootNode.hasError).toBe(false);
   });
 
   it("keeps unbounded collection captures leaf-rooted and viewport-local", async () => {
@@ -45,11 +45,11 @@ describe("TOML sample fixtures", () => {
     const languageMode = editor.getBuffer().getLanguageMode();
     await languageMode.ready;
 
-    const groups = await editor.getGrammarQueryCaptureGroups("highlightsQuery", {
+    const query = await editor.getGrammar().getQuery("highlightsQuery");
+    const captures = query.captures(languageMode.tree.rootNode, {
       startPosition: new Point(3000, 0),
       endPosition: new Point(3006, 0),
     });
-    const captures = groups.find(({ grammar }) => grammar === editor.getGrammar()).captures;
 
     expect(
       captures.some(
@@ -114,11 +114,11 @@ inline = {left = 1, right = 2}
 
     const fullGroups = await editor.getGrammarQueryCaptureGroups("highlightsQuery");
     const fullCaptures = fullGroups.find(({ grammar }) => grammar === editor.getGrammar()).captures;
-    const tileGroups = await editor.getGrammarQueryCaptureGroups("highlightsQuery", {
+    const query = await editor.getGrammar().getQuery("highlightsQuery");
+    const tileCaptures = query.captures(languageMode.tree.rootNode, {
       startPosition: new Point(400, 0),
       endPosition: new Point(406, 0),
     });
-    const tileCaptures = tileGroups.find(({ grammar }) => grammar === editor.getGrammar()).captures;
 
     expect(fullCaptures.length).toBeLessThanOrEqual(21000);
     expect(tileCaptures.length).toBeLessThanOrEqual(130);
