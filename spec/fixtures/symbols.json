@@ -1,0 +1,17 @@
+{
+  "source.toml": {
+    "text": "[server]\nhost = \"localhost\"\n[[clients]]\nname = \"example\"\n",
+    "symbols": [
+      {
+        "name": "server",
+        "tag": "module"
+      },
+      {
+        "name": "clients",
+        "tag": "module"
+      }
+    ],
+    "absent": ["localhost", "example"],
+    "only": true
+  }
+}
