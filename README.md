@@ -2,6 +2,8 @@
 
 TOML language support.
 
+Fork of [pulsar-edit/pulsar](https://github.com/pulsar-edit/pulsar) (`packages/language-toml`).
+
 ## Features
 
 - **Grammars**: provides a Tree-sitter grammar built from [tree-sitter-toml](https://github.com/tree-sitter-grammars/tree-sitter-toml).
