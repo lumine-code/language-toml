@@ -1,0 +1,16 @@
+{
+  "title": "language-toml",
+  "description": "TOML syntax highlighting in the editor.",
+  "recordedOn": "2026-10-13",
+  "sourceRevision": "870705bb046ed4ff0a0b71588f0bf6d4c7bf97f9",
+  "mode": "normal",
+  "fontSettings": "default",
+  "images": [
+    {
+      "file": "demo.png",
+      "label": "TOML syntax highlighting at the default editor font size.",
+      "width": 1100,
+      "height": 820
+    }
+  ]
+}

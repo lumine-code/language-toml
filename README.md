@@ -9,6 +9,8 @@ Fork of [pulsar-edit/pulsar](https://github.com/pulsar-edit/pulsar) (`packages/l
 - **Grammars**: provides a Tree-sitter grammar built from [tree-sitter-toml](https://github.com/tree-sitter-grammars/tree-sitter-toml).
 - **Syntax highlighting**: full grammar coverage for TOML files.
 
+![TOML syntax highlighting at the default editor font size.](.github/demo.png)
+
 ## Installation
 
 To install `language-toml` search for it in the Install pane of the Lumine settings, or run the command `lumine --install lumine-code/language-toml`.
