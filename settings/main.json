@@ -4,7 +4,12 @@
       "commentStart": "# ",
       "commentDelimiters": {
         "line": "#"
-      }
+      },
+      "nonWordCharacters": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?…"
+    },
+    "bracket-matcher": {
+      "autocompleteCharacters": ["[]", "{}", "\"\"", "''"],
+      "pairsWithExtraNewline": ["[]"]
     }
   }
 }
