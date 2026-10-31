@@ -10,6 +10,7 @@
     "grammar": "toml.wasm",
     "highlightsQuery": "toml-highlights.scm",
     "foldsQuery": "toml-folds.scm",
+    "indentsQuery": "toml-indents.scm",
     "tagsQuery": "toml-tags.scm",
     "injectionsQuery": "toml-injections.scm"
   },
