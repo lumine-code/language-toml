@@ -33,6 +33,9 @@ SOFTWARE.
 Source: https://github.com/tree-sitter-grammars/tree-sitter-toml
 Revision: v0.7.0
 
+Parser source: github:tree-sitter-grammars/tree-sitter-toml#v0.7.0
+Resolved commit: 64b56832c2cffe41758f28e05c756a3a98d16f41
+
 Original file: LICENSE
 
 The MIT License (MIT)
